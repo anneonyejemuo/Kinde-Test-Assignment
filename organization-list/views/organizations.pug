@@ -3,11 +3,12 @@ extends layout
 block content
   h2 Organisations
   ul#organizations-list.list-group
-    if organizations
+    if organizations && organizations.length > 0
       each organization in organizations
         li.list-group-item= organization.name
     else
-      li.list-group-item not fetching list
+      li.list-group-item Not fetching the list
+
 
 
     block content
