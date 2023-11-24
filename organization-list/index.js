@@ -1,13 +1,13 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-// Replace the require statement with dynamic import
+// import
 import express from 'express';
 import bodyParser from 'body-parser';
 import nodeFetch from 'node-fetch';
 import { GrantType, KindeClient } from '@kinde-oss/kinde-nodejs-sdk';
 
-// Correct the path to the isAuthenticated module
+// isAuthenticated module
 import isAuthenticated from './middlewares/isAuthenticated.js';
 
 
@@ -17,7 +17,7 @@ const port = 4000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Move the dynamic import outside the async function
+
 const fetch = await import('node-fetch');
 
 const options = {
@@ -40,9 +40,8 @@ app.get('/login', kindeClient.login(), (req, res) => {
   return res.redirect('/admin');
 });
 
-// ... (other routes)
 
-// New route for fetching and rendering organizations
+// fetching and rendering organizations
 app.get('/get-organizations', isAuthenticated(kindeClient), async (req, res) => {
   try {
     const accessToken = await kindeClient.getToken(req);
@@ -89,8 +88,6 @@ app.get('/', async (req, res) => {
     });
   }
 });
-
-// ... (remaining code)
 
 app.listen(port, () => {
   console.log(`Kinde NodeJS Starter Kit listening on port ${port}!`);
