@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h2 Organisations
+  ul#organizations-list.list-group
+    if organizations
+      each organization in organizations
+        li.list-group-item= organization.name
+    else
+      li.list-group-item Default Organization
+      li.list-group-item Awesome Org
+      li.list-group-item Bestest Org
+      li.list-group-item Greatness Org
+      li.list-group-item Kindness Org
+
+
+    block content
+  style.
+    body {
+      background-color: #f0f0f0;
+      color: green;
+      font-size: 40px;
+      align: center; 
+    }
+
+
+
+
